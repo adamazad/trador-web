@@ -26,7 +26,6 @@ function LoginContaienr() {
     setError(undefined)
     loginWithEmailAndPassword(email, password).catch(error => {
       setError(error)
-      console.log(error)
       setWorking(false)
     })
   }

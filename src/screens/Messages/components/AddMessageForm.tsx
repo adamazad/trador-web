@@ -57,7 +57,6 @@ export default function AddMessageForm({
         onSucess(data)
       })
       .catch(e => {
-        console.log(e)
         setError(e)
       })
       .finally(() => setIsLoading(false))

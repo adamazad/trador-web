@@ -43,7 +43,6 @@ export default function UpdateAddMessage({
     })
       .then(({ data }) => {
         resetMessageContent()
-        console.log(data)
 
         const appUser = user as AppUser
 
