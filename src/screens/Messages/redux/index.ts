@@ -78,9 +78,6 @@ export const messageUpdate = (payload: Message): MessagesUpdateAction => ({
 
 type MessagesState = {
   items: Message[]
-  byId: {
-    [id: string]: Message
-  }
   isLoading: boolean
   updatedAt: number
   ttl: number
@@ -91,7 +88,6 @@ const initialState: MessagesState = {
   isLoading: false,
   error: undefined,
   items: [],
-  byId: {},
   updatedAt: 0,
   ttl: 120,
 }
