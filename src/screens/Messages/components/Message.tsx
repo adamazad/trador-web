@@ -1,15 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import dayjs from 'dayjs'
-
-// Icons
-import { ReactComponent as ReplyIcon } from 'src/assets/svg/message-reply.svg'
-import { ReactComponent as EditIcon } from 'src/assets/svg/message-edit.svg'
 import TrashIcon from 'react-useanimations/lib/trash2'
 import UseAnimations from 'react-useanimations'
+import React, { useState } from 'react'
+import styled from 'styled-components'
 
+import { ReactComponent as ReplyIcon } from 'src/assets/svg/message-reply.svg'
+import { ReactComponent as EditIcon } from 'src/assets/svg/message-edit.svg'
+import { showModal } from 'src/services/redux/modal'
 import UpdateAddMessage from './UpdateMessageForm'
 import { Message } from 'src/interfaces/Messages'
 import { CardBody } from 'src/components/Card'
@@ -18,8 +15,6 @@ import MessageHeader from './MessageHeader'
 import { Markdown } from 'src/components'
 import { deleteMessage } from '../redux'
 import { useUser } from 'src/hooks'
-
-dayjs.extend(relativeTime)
 
 interface MessageProps {
   message: Message
@@ -51,7 +46,12 @@ export default function SingleMessage({ message }: MessageProps) {
     if (user) {
       setIsReplyMode(prevState => !prevState)
     } else {
-      alert('You need to login to reply!')
+      dispatch(
+        showModal({
+          title: 'You need to login',
+          content: 'You need to login to post a reply',
+        })
+      )
     }
   }
 

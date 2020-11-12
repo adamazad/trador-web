@@ -10,10 +10,9 @@ import {
   Markdown,
 } from 'src/components'
 import { Message } from 'src/interfaces/Messages'
+import { AppUser } from 'src/interfaces/Auth'
 import { useInput, useUser } from 'src/hooks'
 import ApiService from 'src/services/api'
-
-import { AppUser } from 'src/interfaces/Auth'
 import { messageCreate } from '../redux'
 import Center from 'src/layouts/Center'
 
