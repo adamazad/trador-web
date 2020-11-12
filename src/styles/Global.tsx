@@ -64,23 +64,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    font-size: ${props => props.theme.fontSizes[0]}px;
+    font-size: ${props => props.theme.fontSizes[1]}px;
     a {
       color: ${props => props.theme.colors.text};
       text-decoration: underline;
     }
     @media (min-width: ${props => props.theme.breakpoints[0]}) {
       & {
-         /* fallback for browsers that do not support calc */
         font-size: ${props => props.theme.fontSizes[1]}px;
-        font-size: calc(.4vw + ${props => props.theme.fontSizes[0]}px);
+        font-size: calc(.4vw + ${props => props.theme.fontSizes[1]}px);
       }
     }
     @media (min-width: ${props => props.theme.breakpoints[1]}) {
       & {
-        /* fallback for browsers that do not support calc */
         font-size: ${props => props.theme.fontSizes[1]}px;
-        font-size: calc(.2vw + ${props => props.theme.fontSizes[0]}px);
+        font-size: calc(.2vw + ${props => props.theme.fontSizes[1]}px);
       }
     }
 
@@ -159,7 +157,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     line-height: 1.5;
     color: ${props => props.theme.colors.primary};
-    background-color: #fff;
+    background-color: transparent;
     background-clip: padding-box;
     border: 0;
     border-bottom: 1px solid ${props => props.theme.colors.primary};
@@ -167,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:focus {
       color: #495057;
-      background-color: #fff;
+      background-color: transparent;
       border-color: ${props => props.theme.colors.primary};
       outline: 0;
     }
