@@ -1,6 +1,6 @@
 # Trådor Web
 
-See demo here
+See demo here [https://trador.netlify.app/]
 
 ## Available Scripts
 
