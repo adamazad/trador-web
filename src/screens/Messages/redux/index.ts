@@ -1,7 +1,7 @@
+import { showModal } from 'src/services/redux/modal'
 import { AppThunk } from 'src/services/redux/store'
 import { Message } from 'src/interfaces/Messages'
 import ApiService from 'src/services/api'
-import { showModal } from 'src/services/redux/modal'
 
 const MESSAGES_CREATE = 'messages/create'
 const MESSAGES_UPDATE = 'messages/update'
