@@ -160,6 +160,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     background-clip: padding-box;
     border: 0;
+    border-radius: 0;
     border-bottom: 1px solid ${props => props.theme.colors.primary};
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 

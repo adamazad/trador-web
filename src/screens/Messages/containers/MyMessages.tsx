@@ -26,7 +26,7 @@ export default function MyMessageListContainer() {
   // @TODO: improve the UX
   if (error) {
     return (
-      <Center flexDirection="column" height="100%">
+      <Center height="100%" flexDirection="column">
         There was an error fetching your feed.
         <Button onClick={fetchMessages}>Try Again</Button>
       </Center>

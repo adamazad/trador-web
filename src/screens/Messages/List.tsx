@@ -16,7 +16,7 @@ function MessageListScreen() {
 
   return (
     <FixedHeader>
-      <Container>
+      <Container height="100%">
         <MessageListContainer />
       </Container>
     </FixedHeader>
