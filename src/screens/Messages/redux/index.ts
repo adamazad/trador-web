@@ -81,12 +81,12 @@ type MessagesState = {
   isLoading: boolean
   updatedAt: number
   ttl: number
-  error: Error | undefined
+  error: Error | null
 }
 
 const initialState: MessagesState = {
   isLoading: false,
-  error: undefined,
+  error: null,
   items: [],
   updatedAt: 0,
   ttl: 120,
@@ -151,13 +151,13 @@ export default function messagesReducer(
     case MESSAGES_LOADING:
       return {
         ...state,
+        error: null,
         isLoading: true,
       }
     case MESSAGES_CREATE: {
       return {
         ...state,
         items: [action.payload, ...state.items],
-        isCreatingItem: false,
         updatedAt,
       }
     }
@@ -167,7 +167,6 @@ export default function messagesReducer(
         items: state.items.map(item =>
           item.id === action.payload.id ? action.payload : item
         ),
-        isCreatingItem: false,
         updatedAt,
       }
     }
