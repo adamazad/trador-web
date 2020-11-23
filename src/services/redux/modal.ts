@@ -1,38 +1,39 @@
-const MODAL_SHOW = 'modal/show'
-const MODAL_DISMISS = 'modal/dismiss'
+import { Action } from 'redux'
+
+export enum ActionTypes {
+  MODAL_SHOW = 'modal/show',
+  MODAL_DISMISS = 'modal/dismiss',
+}
 
 type ModalPayload = {
   title: string
   content: string
 }
 
-type ModalShowAction = {
-  type: typeof MODAL_SHOW
+export interface ModalShowAction extends Action<ActionTypes.MODAL_SHOW> {
   payload: ModalPayload
 }
 
-type ModalDismissAction = {
-  type: typeof MODAL_DISMISS
-}
+export interface ModalDismissAction extends Action<ActionTypes.MODAL_DISMISS> {}
 
 type ModalAction = ModalShowAction | ModalDismissAction
 
-type ModalState = {
+export interface ModalState {
   shown: boolean
   title: string
   content: string
 }
 
 export const showModal = (payload: ModalPayload): ModalShowAction => ({
-  type: MODAL_SHOW,
+  type: ActionTypes.MODAL_SHOW,
   payload,
 })
 
 export const dismissModal = (): ModalDismissAction => ({
-  type: MODAL_DISMISS,
+  type: ActionTypes.MODAL_DISMISS,
 })
 
-const inititalState: ModalState = {
+export const inititalState: ModalState = {
   shown: false,
   title: '',
   content: '',
@@ -40,9 +41,9 @@ const inititalState: ModalState = {
 
 export default function reducer(state = inititalState, action: ModalAction) {
   switch (action.type) {
-    case MODAL_SHOW:
+    case ActionTypes.MODAL_SHOW:
       return { ...action.payload, shown: true }
-    case MODAL_DISMISS:
+    case ActionTypes.MODAL_DISMISS:
       return { ...inititalState }
     default:
       return state
