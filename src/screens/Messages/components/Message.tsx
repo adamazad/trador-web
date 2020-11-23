@@ -36,11 +36,7 @@ export default function SingleMessage({ message }: MessageProps) {
 
   // Select the replies/comments
   // @TODO: create a reselect function for this
-  const comments = useSelector(store => {
-    return store.messages.items.filter(
-      ({ parentId }) => parentId === message.id
-    )
-  })
+  const comments = useSelector(store => store.messages.items.filter(({ parentId }) => parentId === message.id))
 
   const toggleReplyMode = () => {
     if (user) {
@@ -57,27 +53,15 @@ export default function SingleMessage({ message }: MessageProps) {
 
   return (
     <>
-      <MessageHeader
-        authorName={message.user.name}
-        date={message.createdAt}
-        iconticonSeed={message.user.id}
-      />
+      <MessageHeader authorName={message.user.name} date={message.createdAt} iconticonSeed={message.user.id} />
       <CardBody>
         {isEditMode ? (
-          <UpdateAddMessage
-            message={message}
-            onSucess={() => setIsEditMode(false)}
-          />
+          <UpdateAddMessage message={message} onSucess={() => setIsEditMode(false)} />
         ) : (
           <Markdown content={message.message} />
         )}
       </CardBody>
-      <CardBody
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        pt={0}
-      >
+      <CardBody display="flex" alignItems="center" justifyContent="space-between" pt={0}>
         {isPost && (
           <span role="button" onClick={toggleReplyMode} title="Reply to post">
             <ReplyIcon />
@@ -85,18 +69,10 @@ export default function SingleMessage({ message }: MessageProps) {
         )}
         {isAuthor && (
           <>
-            <span
-              role="button"
-              title="Edit Message"
-              onClick={() => setIsEditMode(prevState => !prevState)}
-            >
+            <span role="button" title="Edit Message" onClick={() => setIsEditMode(prevState => !prevState)}>
               <EditIcon width={20} />
             </span>
-            <span
-              role="button"
-              title="Delete Message"
-              onClick={() => dispatch(deleteMessage(message.id))}
-            >
+            <span role="button" title="Delete Message" onClick={() => dispatch(deleteMessage(message.id))}>
               <UseAnimations animation={TrashIcon} />
             </span>
           </>
@@ -113,10 +89,7 @@ export default function SingleMessage({ message }: MessageProps) {
         </CardBody>
       )}
       <Comments>
-        {comments.length > 0 &&
-          comments.map(comment => (
-            <SingleMessage message={comment} key={comment.id} />
-          ))}
+        {comments.length > 0 && comments.map(comment => <SingleMessage message={comment} key={comment.id} />)}
       </Comments>
     </>
   )

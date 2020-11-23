@@ -16,10 +16,7 @@ const DefaultEmptyList = () => (
   </Center>
 )
 
-const MessageList: React.FC<RenderMessageListProps> = ({
-  messages,
-  emptyList = DefaultEmptyList,
-}) => {
+const MessageList: React.FC<RenderMessageListProps> = ({ messages, emptyList = DefaultEmptyList }) => {
   if (messages.length === 0) {
     return emptyList()
   }

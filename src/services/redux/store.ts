@@ -1,10 +1,4 @@
-import {
-  combineReducers,
-  createStore,
-  applyMiddleware,
-  Action,
-  compose,
-} from 'redux'
+import { combineReducers, createStore, applyMiddleware, Action, compose } from 'redux'
 import Thunk, { ThunkAction } from 'redux-thunk'
 
 import messagesReducer from '../../screens/Messages/redux'
@@ -25,15 +19,9 @@ const rootReducer = combineReducers({
 
 export type RootState = ReturnType<typeof rootReducer>
 
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>
 
-const composeEnhancers =
-  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(Thunk)))
 

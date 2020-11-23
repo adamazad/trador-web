@@ -28,11 +28,7 @@ interface MessageHeaderProps {
   date: string
 }
 
-const MessageHeader: React.FC<MessageHeaderProps> = ({
-  iconticonSeed,
-  authorName,
-  date,
-}) => (
+const MessageHeader: React.FC<MessageHeaderProps> = ({ iconticonSeed, authorName, date }) => (
   <CardBody display="flex" pb={0}>
     <Media>
       <Iconticon seed={iconticonSeed} />
