@@ -9,7 +9,7 @@ import {
   ThemeHeader,
   ThemeRadii,
   ThemeFonts,
-} from './styles/Theme'
+} from './Theme'
 
 declare module 'styled-components' {
   export interface DefaultTheme extends RebootTheme, Theme {
